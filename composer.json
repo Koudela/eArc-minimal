@@ -1,0 +1,16 @@
+{
+    "name": "earc/minimal",
+    "description": "eArc - the explizit architecture framework - minimal installation skeleton",
+    "type": "project",
+    "require": {
+        "earc/core": "dev-master",
+        "earc/di": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Koudela",
+            "email": "thomas@koudela.net"
+        }
+    ]
+}
