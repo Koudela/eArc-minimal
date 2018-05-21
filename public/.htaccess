@@ -1,0 +1,14 @@
+# activate URL rewriting
+RewriteEngine On
+
+RewriteBase /
+# if the requested filename is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# and not an existing regular file
+RewriteCond %{REQUEST_FILENAME} !-f
+# and not a symbolic link
+RewriteCond %{REQUEST_FILENAME} !-l
+# then rewrite the URL
+# but keep the query string (QSA) 
+# and rewrite this request not any further (L)
+RewriteRule ^([a-zA-Z0-9\/\_\-]*)$ index.php?url=$1 [QSA,L]
