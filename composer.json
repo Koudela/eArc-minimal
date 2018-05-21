@@ -15,5 +15,6 @@
             "name": "Thomas Koudela",
             "email": "thomas@koudela.net"
         }
-    ]
+    ],
+    "minimum-stability": "dev"
 }
