@@ -3,8 +3,6 @@
     "description": "eArc - the explizit architecture framework - minimal installation skeleton",
     "type": "project",
     "version": "0.0.1",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
 	"php": "^7.2",
         "earc/core": "dev-master",
