@@ -11,4 +11,4 @@ RewriteCond %{REQUEST_FILENAME} !-l
 # then rewrite the URL
 # but keep the query string (QSA) 
 # and rewrite this request not any further (L)
-RewriteRule ^([a-zA-Z0-9\/\_\-]*)$ index.php?url=$1 [QSA,L]
+RewriteRule ^([a-zA-Z0-9/_\-]*)$ index.php?url=$1 [QSA,L]

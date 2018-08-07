@@ -1,11 +1,12 @@
 {
     "name": "earc/minimal",
-    "description": "eArc - the explizit architecture framework - minimal installation skeleton",
+    "description": "eArc - the explicit architecture framework - minimal installation skeleton",
     "type": "project",
     "version": "0.0.1",
     "require": {
-	"php": "^7.2",
+	    "php": "^7.2",
         "earc/core": "dev-master",
+        "earc/router": "dev-master",
         "earc/di": "dev-master",
         "twig/twig": "^2.4"
     },
@@ -15,5 +16,11 @@
             "name": "Thomas Koudela",
             "email": "thomas@koudela.net"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4" : {
+            "eArc\\App\\": "src/",
+            "eArc\\App\\Tests\\": "tests/"
+        }
+    }
 }
