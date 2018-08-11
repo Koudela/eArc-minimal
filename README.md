@@ -11,18 +11,19 @@ To function right out of the box this installation comes with the
 [twig template engine](https://packagist.org/packages/twig/twig). Feel free to 
 use any template engine you like.
 
-This skeleton is configured for the use with an apache2 web-server and the
-installation instruction refer to it. You are free to use any web-server you
+This skeleton is configured for the use with an apache2 web server and the
+installation instruction refer to it. You are free to use any web server you
 want. Please note the PHP version must be 7.2 or higher.  
 
-Please note that the components have a more detailed documentation at their 
+The eArc framework components have a more detailed documentation at their 
 git page:
-- [earc/core (dispatcher class/app lifecycle)](https://github.com/Koudela/eArc-core)
-- [earc/di (dependency container class/dependency injection)](https://github.com/Koudela/eArc-di)    
-- [earc/router (router class)](https://github.com/Koudela/eArc-router)
+- [earc/core (dispatcher/app lifecycle)](https://github.com/Koudela/eArc-core)
+- [earc/di (dependency container/dependency injection)](https://github.com/Koudela/eArc-di)    
+- [earc/router (router)](https://github.com/Koudela/eArc-router)
 
 ## Table of Contents
  
+ - [Classification](#classification)
  - [Installation](#installation)
    - [1. Get the source code](#1-get-the-source-code)
    - [2. Configure the web-server](#2-configure-the-web-server)
@@ -38,6 +39,42 @@ git page:
        - [Example](#example)
  - [Releases](#releases)
    - [release v0.1](#release-v01)
+
+## Classification
+
+The eArc framework is the antithesis to the traditional MVC frameworks where
+there is only one base directory for every file usage (e.g. controller, entity,
+service, view, ...). The core idea at the beginning of eArcs creation was:
+> We have this file system. It is one of the most basic concepts of all common
+operating systems. Trees are very potent data structures. Why not express common
+basic programming concepts and problems like ownership, access, flow, control,
+domain and dependency through it? Why not boost our comprehension of the
+programming code by the file system itself?
+
+When work was in progress I realised that the web backend framework problem
+domain has decomposed itself into two tree domains. Each with its own base
+concepts and language.
+ 
+1. The first tree domain is the world of the User-Interface. *Routing*,
+*access*, *request flow/control* and *user interaction* is expressed through
+the `/src/web-route` folder with its access and main controllers and its
+views. 
+
+2. The second tree domain is the world of the services* and the business logic.
+*Domain*, *domain aggregation* and *domain interaction* is expressed in the four
+top level domain base folders `/src/businessDomains`,
+`/src/configurationDomains`, `/src/outputDomains` and `/src/persistenceDomains`,
+the (sub-) domain structure and the specific domain interfaces. Every domain is
+a small MVC world of its own (although business, configuration and persistence
+domains are lacking the views and output domains are lacking the model). 
+
+The eArc framework transforms the monolithic app approach of traditional MVCs
+into some sort of microservices meets controller-template-tree architecture.
+
+*Third party services reside in the `/vendor` folder. Only if the application is 
+shielded against the third party service through an anti corruption layer or
+adapter service or has a separate app specific configuration service it can be
+detected through the base domains folder structure.  
 
 ## Installation
 
