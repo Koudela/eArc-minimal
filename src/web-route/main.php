@@ -8,8 +8,7 @@
  * @license http://opensource.org/licenses/MIT MIT License
  */
 
-// autoloader for (composer) dependencies (is PSR-4 compatible)
-require __DIR__ . '/../vendor/autoload.php';
-
-// bootstrap the application
-new \eArc\App\configurationDomains\bootstrapService\bootstrapServiceAPI();
+return function(\earc\router\Router $router, \Psr\Container\ContainerInterface $container)
+{
+    echo $container->get('twig')->render(implode(DIRECTORY_SEPARATOR, $router->getRealArgs()) . 'index.twig.html', []);
+};

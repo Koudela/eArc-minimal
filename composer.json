@@ -2,12 +2,12 @@
     "name": "earc/minimal",
     "description": "eArc - the explicit architecture framework - minimal installation skeleton",
     "type": "project",
-    "version": "0.0.1",
+    "version": "0.1-rc",
     "require": {
 	    "php": "^7.2",
-        "earc/core": "dev-master",
-        "earc/router": "dev-master",
-        "earc/di": "dev-master",
+        "earc/core": "^0.1",
+        "earc/router": "^0.1",
+        "earc/di": "^0.1",
         "twig/twig": "^2.4"
     },
     "license": "MIT",

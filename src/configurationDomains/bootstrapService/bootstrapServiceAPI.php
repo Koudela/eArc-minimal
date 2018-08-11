@@ -1,7 +1,6 @@
 <?php
 /**
  * e-Arc Framework - the explicit Architecture Framework
- * let the folder structure tell what your application is doing
  *
  * @package earc/minimal
  * @link https://github.com/Koudela/eArc-minimal/
@@ -36,19 +35,20 @@ class bootstrapServiceAPI implements bootstrapServiceInterface {
 
     protected function bootstrapEArc(string $routingBasePath): DependencyContainer
     {
-        $container = new DependencyContainer(null);
-        $container->set(DependencyContainer::class, (function () use ($container) {return $container;})());
+        $container = new DependencyContainer();
 
         $container->set(Dispatcher::class, [Router::class, DependencyContainer::class]);
 
-        $container->set(Router::class, (function() use ($routingBasePath) {
+        // usage of the inline factory instead of the array configuration approach
+        // otherwise if any of the arguments matches a container key we are in trouble
+        $container->set(Router::class, function() use ($routingBasePath) {
             return new Router(
                 $routingBasePath,
-                $_SERVER['REQUEST_METHOD'],
-                $_GET['url'] ?? DIRECTORY_SEPARATOR,
+                filter_input(INPUT_SERVER, 'REQUEST_METHOD'),
+                filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL) ?? '/',
                 null
             );
-        })());
+        });
 
         return $container;
     }
